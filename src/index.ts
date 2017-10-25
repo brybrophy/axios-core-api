@@ -84,10 +84,10 @@ function generateAxiosInstance(apiConfig: ApiConfig): AxiosInstance {
 }
 
 function generateFormDataAxiosInstance(apiConfig: ApiConfig): AxiosInstance {
-	const _formDataConfig = apiConfig;
-	_formDataConfig.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+	const formDataConfig = apiConfig;
+	formDataConfig.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 
-	return generateAxiosInstance(_formDataConfig);
+	return generateAxiosInstance(formDataConfig);
 }
 
 function getFormData(object): FormData {
