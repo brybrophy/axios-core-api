@@ -71,6 +71,12 @@ export default class ApiCore {
 			handleErrors(error);
 		}
 	}
+
+	public refreshApiInstance(newConfig: ApiConfig) {
+		this._apiConfig = newConfig;
+		this._AXIOS = generateAxiosInstance(this._apiConfig);
+		this._AXIOS_FORM = generateFormDataAxiosInstance(this._apiConfig);
+	}
 }
 
 function generateAxiosInstance(apiConfig: ApiConfig): AxiosInstance {
