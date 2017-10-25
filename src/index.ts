@@ -3,13 +3,11 @@ import { ApiConfig } from './ApiConfig';
 
 export default class ApiCore {
 	private _apiConfig: ApiConfig;
-	private _apiHost: string;
 	private _AXIOS: AxiosInstance;
 	private _AXIOS_FORM: AxiosInstance;
 
 	constructor(apiConfig: ApiConfig, apiHost: string) {
 		this._apiConfig = apiConfig;
-		this._apiHost = apiHost;
 		this._AXIOS = generateAxiosInstance(this._apiConfig);
 		this._AXIOS_FORM = generateFormDataAxiosInstance(this._apiConfig);
 	}
@@ -44,16 +42,6 @@ export default class ApiCore {
 		}
 	}
 
-	public async patchFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS_FORM.patch(urlPath, getFormData(data));
-
-		try {
-			return res.data;
-		} catch (error) {
-			handleErrors(error);
-		}
-	}
-
 	public async post(urlPath: string, data): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.post(urlPath, data);
 
@@ -76,16 +64,6 @@ export default class ApiCore {
 
 	public async put(urlPath: string, data): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.put(urlPath, data);
-
-		try {
-			return res.data;
-		} catch (error) {
-			handleErrors(error);
-		}
-	}
-
-	public async putFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS_FORM.put(urlPath, getFormData(data));
 
 		try {
 			return res.data;
