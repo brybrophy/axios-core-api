@@ -35,9 +35,10 @@ export default class ExampleApi {
 ## Usage With TypeScript
 
 ```
-import ApiCore, { ApiConfig } from 'axios-core-api';
+import { AxiosRequestConfig } from 'axios';
+import ApiCore from 'axios-core-api';
 
-const apiConfig: ApiConfig = {
+const apiConfig: AxiosRequestConfig = {
     headers: {
         Accept: 'application/json',
         Authorization: `Bearer 123abc`,

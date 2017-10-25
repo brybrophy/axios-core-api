@@ -1,12 +1,11 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
-import { ApiConfig } from './ApiConfig';
+import axios, { AxiosError, AxiosInstance, AxiosResponse, AxiosRequestConfig } from 'axios';
 
 export default class ApiCore {
-	private _apiConfig: ApiConfig;
+	private _apiConfig: AxiosRequestConfig;
 	private _AXIOS: AxiosInstance;
 	private _AXIOS_FORM: AxiosInstance;
 
-	constructor(apiConfig: ApiConfig, apiHost: string) {
+	constructor(apiConfig: AxiosRequestConfig, apiHost: string) {
 		this._apiConfig = apiConfig;
 		this._AXIOS = generateAxiosInstance(this._apiConfig);
 		this._AXIOS_FORM = generateFormDataAxiosInstance(this._apiConfig);
@@ -72,18 +71,18 @@ export default class ApiCore {
 		}
 	}
 
-	public refreshApiInstance(newConfig: ApiConfig) {
+	public refreshApiInstance(newConfig: AxiosRequestConfig) {
 		this._apiConfig = newConfig;
 		this._AXIOS = generateAxiosInstance(this._apiConfig);
 		this._AXIOS_FORM = generateFormDataAxiosInstance(this._apiConfig);
 	}
 }
 
-function generateAxiosInstance(apiConfig: ApiConfig): AxiosInstance {
+function generateAxiosInstance(apiConfig: AxiosRequestConfig): AxiosInstance {
 	return axios.create(apiConfig);
 }
 
-function generateFormDataAxiosInstance(apiConfig: ApiConfig): AxiosInstance {
+function generateFormDataAxiosInstance(apiConfig: AxiosRequestConfig): AxiosInstance {
 	const formDataConfig = apiConfig;
 	formDataConfig.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 
