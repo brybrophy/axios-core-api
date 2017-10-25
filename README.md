@@ -35,53 +35,65 @@ export default class ExampleApi {
 ### Get
 
 ```
-    getAllExamples() {
-        return this._apiCore.get(`${this.basePath}/examples`);
-    }
-    
-    getExampleById(id) {
-        return this._apiCore.get(`${this.basePath}/examples/${id}`);
-    }
+getAllExamples() {
+    return this._apiCore.get(`${this.basePath}/examples`);
+}
+
+getExampleById(id) {
+    return this._apiCore.get(`${this.basePath}/examples/${id}`);
+}
 ```
 
 ### Post
 
 ```
-    createExample(newExample) {
-        return this._apiCore.post(`${this.basePath}/examples`, newExample);
-    }
+createExample(newExample) {
+    return this._apiCore.post(`${this.basePath}/examples`, newExample);
+}
 ```
 
 ### Post Form Data
 
 ```
-    submitNewExampleForm(newExample) {
-        return this._apiCore.postFormData(`${this.basePath}/examples`, newExample);
-    }
+submitNewExampleForm(newExample) {
+    return this._apiCore.postFormData(`${this.basePath}/examples`, newExample);
+}
 ```
 
 ### Put
 
 ```
-    replaceExample(id, nextExample) {
-        return this._apiCore.put(`${this.basePath}/examples/${id}`, nextExample);
-    }
+replaceExample(id, nextExample) {
+    return this._apiCore.put(`${this.basePath}/examples/${id}`, nextExample);
+}
 ```
 
 ### Patch
 
 ```
-    updateExample(id, nextExample) {
-        return this._apiCore.patch(`${this.basePath}/examples/${id}`, nextExample);
-    }
+updateExample(id, nextExample) {
+    return this._apiCore.patch(`${this.basePath}/examples/${id}`, nextExample);
+}
 ```
 
 ### Delete
 
 ```
-    destroyExample(id) {
-        return this._apiCore.delete(`${this.basePath}/examples/$id`);
-    }
+destroyExample(id) {
+    return this._apiCore.delete(`${this.basePath}/examples/$id`);
+}
+```
+
+### refreshApiInstance
+
+```
+refreshApiInstance(newAccessToken) {
+    const newConfig = apiConfig;
+    
+    newConfig.headers.Authorization = `Bearer ${newAccessToken}`;
+
+    this._apiCore.refreshApiInstance(newConfig);
+}
 ```
 
 
