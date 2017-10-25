@@ -40,6 +40,26 @@ export default class ApiCore {
 		}
 	}
 
+	public async patch(urlPath: string, data) {
+		const res = await this._AXIOS.patch(urlPath, data);
+
+		try {
+			return res.data;
+		} catch (error) {
+			handleErrors(error);
+		}
+	}
+
+	public async patchFormData(urlPath: string, data) {
+		const res = await this._AXIOS.patch(urlPath, getFormData(data));
+
+		try {
+			return res.data;
+		} catch (error) {
+			handleErrors(error);
+		}
+	}
+
 	public async post(urlPath: string, data) {
 		const res = await this._AXIOS.post(urlPath, data);
 
@@ -62,6 +82,16 @@ export default class ApiCore {
 
 	public async put(urlPath: string, data) {
 		const res = await this._AXIOS.put(urlPath, data);
+
+		try {
+			return res.data;
+		} catch (error) {
+			handleErrors(error);
+		}
+	}
+
+	public async putFormData(urlPath: string, data) {
+		const res = await this._AXIOS.put(urlPath, getFormData(data));
 
 		try {
 			return res.data;
