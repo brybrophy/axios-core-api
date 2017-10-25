@@ -4,6 +4,8 @@
 
 This package can be used to create a core api class to route requests between a client and an api. 
 
+It is written in TypeScript, and typings are included directly in the package.
+
 ## Getting Started
 
 `yarn add axios-core-api` or `npm install axios-core-api`
@@ -25,7 +27,32 @@ const apiConfig = {
 export default class ExampleApi {
     constructor() {
         this._apiCore = new ApiCore(apiConfig);
-        this.basePath = 'https://www.example.org/api';
+        this.__basePath = 'https://www.example.org/api';
+    }
+}
+```
+
+## Usage With TypeScript
+
+```
+import ApiCore, { ApiConfig } from 'axios-core-api';
+
+const apiConfig: ApiConfig = {
+    headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer 123abc`,
+        'Content-Type': 'application/json'
+    },
+    timeout: 15000
+};
+
+export default class ExampleApi {
+    _apiCore: ApiCore;
+    _basePath: string;
+
+    constructor() {
+        this._apiCore = new ApiCore(apiConfig);
+        this._basePath = 'https://www.example.org/api';
     }
 }
 ```
@@ -36,11 +63,11 @@ export default class ExampleApi {
 
 ```
 getAllExamples() {
-    return this._apiCore.get(`${this.basePath}/examples`);
+    return this._apiCore.get(`${this._basePath}/examples`);
 }
 
 getExampleById(id) {
-    return this._apiCore.get(`${this.basePath}/examples/${id}`);
+    return this._apiCore.get(`${this._basePath}/examples/${id}`);
 }
 ```
 
@@ -48,7 +75,7 @@ getExampleById(id) {
 
 ```
 createExample(newExample) {
-    return this._apiCore.post(`${this.basePath}/examples`, newExample);
+    return this._apiCore.post(`${this._basePath}/examples`, newExample);
 }
 ```
 
@@ -56,7 +83,7 @@ createExample(newExample) {
 
 ```
 submitNewExampleForm(newExample) {
-    return this._apiCore.postFormData(`${this.basePath}/examples`, newExample);
+    return this._apiCore.postFormData(`${this._basePath}/examples`, newExample);
 }
 ```
 
@@ -64,7 +91,7 @@ submitNewExampleForm(newExample) {
 
 ```
 replaceExample(id, nextExample) {
-    return this._apiCore.put(`${this.basePath}/examples/${id}`, nextExample);
+    return this._apiCore.put(`${this._basePath}/examples/${id}`, nextExample);
 }
 ```
 
@@ -72,7 +99,7 @@ replaceExample(id, nextExample) {
 
 ```
 updateExample(id, nextExample) {
-    return this._apiCore.patch(`${this.basePath}/examples/${id}`, nextExample);
+    return this._apiCore.patch(`${this._basePath}/examples/${id}`, nextExample);
 }
 ```
 
@@ -80,7 +107,7 @@ updateExample(id, nextExample) {
 
 ```
 destroyExample(id) {
-    return this._apiCore.delete(`${this.basePath}/examples/$id`);
+    return this._apiCore.delete(`${this._basePath}/examples/$id`);
 }
 ```
 
