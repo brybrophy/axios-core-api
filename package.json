@@ -1,0 +1,19 @@
+{
+	"name": "client-api-core",
+	"version": "1.0.0",
+	"description": "A core api instance with business logic for all rest methods.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Bryan Brophy brybrophy@gmail.com",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/axios": "^0.14.0",
+		"@types/node": "^8.0.47",
+		"typescript": "^2.5.3"
+	},
+	"dependencies": {
+		"axios": "^0.17.0"
+	}
+}

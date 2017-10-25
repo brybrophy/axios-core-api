@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es5",
+		"lib": ["es6", "dom"],
+		"noImplicitAny": false,
+		"sourceMap": false,
+		"moduleResolution": "node",
+		"noUnusedLocals": true,
+		"outDir": "dist"
+	},
+	"compileOnSave": false,
+	"exclude": ["node_modules"]
+}
