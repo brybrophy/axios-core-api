@@ -1,13 +1,5 @@
-import axios, { AxiosError, AxiosInstance } from 'axios';
-
-type ApiConfig = {
-	headers: {
-		Accept: string;
-		Authorization: string;
-		'Content-Type': string;
-	};
-	timeout: number;
-};
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
+import { ApiConfig } from './ApiConfig';
 
 export default class ApiCore {
 	private _apiConfig: ApiConfig;
@@ -20,7 +12,7 @@ export default class ApiCore {
 		this._apiHost = apiHost;
 	}
 
-	public async delete(urlPath: string) {
+	public async delete(urlPath: string): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.delete(urlPath);
 
 		try {
@@ -30,7 +22,7 @@ export default class ApiCore {
 		}
 	}
 
-	public async get(urlPath: string, params) {
+	public async get(urlPath: string, params): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.get(urlPath, { params });
 
 		try {
@@ -40,7 +32,7 @@ export default class ApiCore {
 		}
 	}
 
-	public async patch(urlPath: string, data) {
+	public async patch(urlPath: string, data): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.patch(urlPath, data);
 
 		try {
@@ -50,7 +42,7 @@ export default class ApiCore {
 		}
 	}
 
-	public async patchFormData(urlPath: string, data) {
+	public async patchFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.patch(urlPath, getFormData(data));
 
 		try {
@@ -60,7 +52,7 @@ export default class ApiCore {
 		}
 	}
 
-	public async post(urlPath: string, data) {
+	public async post(urlPath: string, data): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.post(urlPath, data);
 
 		try {
@@ -70,7 +62,7 @@ export default class ApiCore {
 		}
 	}
 
-	public async postFormData(urlPath: string, data) {
+	public async postFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.post(urlPath, getFormData(data));
 
 		try {
@@ -80,7 +72,7 @@ export default class ApiCore {
 		}
 	}
 
-	public async put(urlPath: string, data) {
+	public async put(urlPath: string, data): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.put(urlPath, data);
 
 		try {
@@ -90,7 +82,7 @@ export default class ApiCore {
 		}
 	}
 
-	public async putFormData(urlPath: string, data) {
+	public async putFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
 		const res = await this._AXIOS.put(urlPath, getFormData(data));
 
 		try {
@@ -105,7 +97,7 @@ function generateAxiosInstance(apiConfig: ApiConfig): AxiosInstance {
 	return axios.create(apiConfig);
 }
 
-function getFormData(object) {
+function getFormData(object): FormData {
 	const formData: FormData = new FormData();
 	Object.keys(object).forEach(key => formData.append(key, object[key]));
 
