@@ -2,7 +2,7 @@
 
 ### Generate an Axios instance with business logic for all HTTP request methods.
 
-This package can be used to create a core api class to route requests between the client and the server. 
+This package can be used to create a core api class to route requests between a client and an api. 
 
 ## Getting Started
 
