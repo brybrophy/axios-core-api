@@ -7,7 +7,7 @@
 	"keywords": ["axios", "typescript", "api", "client-side", "rest"],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"prepublish": "tsc"
+		"prepublishOnly": "tsc"
 	},
 	"author": "Bryan Brophy brybrophy@gmail.com",
 	"license": "MIT",
