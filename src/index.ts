@@ -5,11 +5,13 @@ export default class ApiCore {
 	private _apiConfig: ApiConfig;
 	private _apiHost: string;
 	private _AXIOS: AxiosInstance;
+	private _AXIOS_FORM: AxiosInstance;
 
 	constructor(apiConfig: ApiConfig, apiHost: string) {
 		this._apiConfig = apiConfig;
-		this._AXIOS = generateAxiosInstance(this._apiConfig);
 		this._apiHost = apiHost;
+		this._AXIOS = generateAxiosInstance(this._apiConfig);
+		this._AXIOS_FORM = generateFormDataAxiosInstance(this._apiConfig);
 	}
 
 	public async delete(urlPath: string): Promise<AxiosResponse['data']> {
@@ -43,7 +45,7 @@ export default class ApiCore {
 	}
 
 	public async patchFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS.patch(urlPath, getFormData(data));
+		const res = await this._AXIOS_FORM.patch(urlPath, getFormData(data));
 
 		try {
 			return res.data;
@@ -63,7 +65,7 @@ export default class ApiCore {
 	}
 
 	public async postFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS.post(urlPath, getFormData(data));
+		const res = await this._AXIOS_FORM.post(urlPath, getFormData(data));
 
 		try {
 			return res.data;
@@ -83,7 +85,7 @@ export default class ApiCore {
 	}
 
 	public async putFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS.put(urlPath, getFormData(data));
+		const res = await this._AXIOS_FORM.put(urlPath, getFormData(data));
 
 		try {
 			return res.data;
@@ -95,6 +97,13 @@ export default class ApiCore {
 
 function generateAxiosInstance(apiConfig: ApiConfig): AxiosInstance {
 	return axios.create(apiConfig);
+}
+
+function generateFormDataAxiosInstance(apiConfig: ApiConfig): AxiosInstance {
+	const _formDataConfig = apiConfig;
+	_formDataConfig.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+
+	return generateAxiosInstance(_formDataConfig);
 }
 
 function getFormData(object): FormData {
