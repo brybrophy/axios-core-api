@@ -12,7 +12,7 @@ It is written in TypeScript, and typings are included directly in the package.
 
 ## Usage
 
-```
+```javascript
 import ApiCore from 'axios-core-api';
 
 const apiConfig = {
@@ -34,7 +34,7 @@ export default class ExampleApi {
 
 ## Usage With TypeScript
 
-```
+```javascript
 import { AxiosRequestConfig } from 'axios';
 import ApiCore from 'axios-core-api';
 
@@ -62,7 +62,7 @@ export default class ExampleApi {
 
 ### Get
 
-```
+```javascript
 getAllExamples() {
     return this._apiCore.get(`${this._basePath}/examples`);
 }
@@ -74,7 +74,7 @@ getExampleById(id) {
 
 ### Post
 
-```
+```javascript
 createExample(newExample) {
     return this._apiCore.post(`${this._basePath}/examples`, newExample);
 }
@@ -82,7 +82,7 @@ createExample(newExample) {
 
 ### Post Form Data
 
-```
+```javascript
 submitNewExampleForm(newExample) {
     return this._apiCore.postFormData(`${this._basePath}/examples`, newExample);
 }
@@ -90,7 +90,7 @@ submitNewExampleForm(newExample) {
 
 ### Put
 
-```
+```javascript
 replaceExample(id, nextExample) {
     return this._apiCore.put(`${this._basePath}/examples/${id}`, nextExample);
 }
@@ -98,7 +98,7 @@ replaceExample(id, nextExample) {
 
 ### Patch
 
-```
+```javascript
 updateExample(id, nextExample) {
     return this._apiCore.patch(`${this._basePath}/examples/${id}`, nextExample);
 }
@@ -106,7 +106,7 @@ updateExample(id, nextExample) {
 
 ### Delete
 
-```
+```javascript
 destroyExample(id) {
     return this._apiCore.delete(`${this._basePath}/examples/$id`);
 }
@@ -114,7 +114,7 @@ destroyExample(id) {
 
 ### refreshApiInstance
 
-```
+```javascript
 refreshApiInstance(newAccessToken) {
     const newConfig = apiConfig;
     
