@@ -4,13 +4,7 @@
 	"description": "A core api instance with business logic for all rest methods.",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"keywords": [
-		"axios",
-		"typescript",
-		"api",
-		"client-side",
-		"rest"
-	],
+	"keywords": ["axios", "typescript", "api", "client-side", "rest"],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"prepublishOnly": "tsc"
@@ -24,5 +18,9 @@
 	},
 	"dependencies": {
 		"axios": "^0.17.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brybrophy/axios-core-api"
 	}
 }
