@@ -12,9 +12,9 @@ export default class ApiCore {
 	}
 
 	public async delete(urlPath: string): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS.delete(urlPath);
-
 		try {
+			const res = await this._AXIOS.delete(urlPath);
+
 			return res.data;
 		} catch (error) {
 			handleErrors(error);
@@ -22,9 +22,9 @@ export default class ApiCore {
 	}
 
 	public async get(urlPath: string, params): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS.get(urlPath, { params });
-
 		try {
+			const res = await this._AXIOS.get(urlPath, { params });
+
 			return res.data;
 		} catch (error) {
 			handleErrors(error);
@@ -32,9 +32,9 @@ export default class ApiCore {
 	}
 
 	public async patch(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS.patch(urlPath, data);
-
 		try {
+			const res = await this._AXIOS.patch(urlPath, data);
+
 			return res.data;
 		} catch (error) {
 			handleErrors(error);
@@ -42,9 +42,9 @@ export default class ApiCore {
 	}
 
 	public async post(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS.post(urlPath, data);
-
 		try {
+			const res = await this._AXIOS.post(urlPath, data);
+
 			return res.data;
 		} catch (error) {
 			handleErrors(error);
@@ -52,9 +52,9 @@ export default class ApiCore {
 	}
 
 	public async postFormData(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS_FORM.post(urlPath, getFormData(data));
-
 		try {
+			const res = await this._AXIOS_FORM.post(urlPath, getFormData(data));
+
 			return res.data;
 		} catch (error) {
 			handleErrors(error);
@@ -62,9 +62,9 @@ export default class ApiCore {
 	}
 
 	public async put(urlPath: string, data): Promise<AxiosResponse['data']> {
-		const res = await this._AXIOS.put(urlPath, data);
-
 		try {
+			const res = await this._AXIOS.put(urlPath, data);
+
 			return res.data;
 		} catch (error) {
 			handleErrors(error);
@@ -84,6 +84,7 @@ function generateAxiosInstance(apiConfig: AxiosRequestConfig): AxiosInstance {
 
 function generateFormDataAxiosInstance(apiConfig: AxiosRequestConfig): AxiosInstance {
 	const formDataConfig = apiConfig;
+
 	formDataConfig.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 
 	return generateAxiosInstance(formDataConfig);
@@ -91,6 +92,7 @@ function generateFormDataAxiosInstance(apiConfig: AxiosRequestConfig): AxiosInst
 
 function getFormData(object): FormData {
 	const formData: FormData = new FormData();
+
 	Object.keys(object).forEach(key => formData.append(key, object[key]));
 
 	return formData;
