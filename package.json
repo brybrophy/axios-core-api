@@ -1,10 +1,16 @@
 {
 	"name": "axios-core-api",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "A core api instance with business logic for all rest methods.",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"keywords": ["axios", "typescript", "api", "client-side", "rest"],
+	"keywords": [
+		"axios",
+		"typescript",
+		"api",
+		"client-side",
+		"rest"
+	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"prepublishOnly": "tsc"
