@@ -1,15 +1,15 @@
 {
-	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es5",
-		"lib": ["es6", "dom"],
-		"noImplicitAny": false,
-		"sourceMap": false,
-		"moduleResolution": "node",
-		"noUnusedLocals": true,
-		"outDir": "dist",
-		"declaration": true
-	},
-	"compileOnSave": false,
-	"exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+    "lib": ["esnext", "dom"]
+  },
+  "exclude": ["node_modules", "dist"]
 }
