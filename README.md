@@ -1,7 +1,7 @@
 # Axios Core Api
 
 [![npm version](https://badge.fury.io/js/axios-core-api.svg)](https://badge.fury.io/js/axios-core-api)
-![https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
+![https://img.shields.io/badge/dependencies-none-lightgrey.svg](https://img.shields.io/badge/dependencies-none-lightgrey.svg)
 ![https://img.shields.io/badge/build-passing-brightgreen.svg](https://img.shields.io/badge/build-passing-brightgreen.svg)
 ![https://img.shields.io/badge/tests-passing-brightgreen.svg](https://img.shields.io/badge/tests-passing-brightgreen.svg)
 
