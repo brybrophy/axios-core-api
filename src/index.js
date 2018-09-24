@@ -34,26 +34,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var axios_1 = __importDefault(require("axios"));
-var form_data_1 = __importDefault(require("form-data"));
+exports.__esModule = true;
+var axios_1 = require("axios");
+var form_data_1 = require("form-data");
 var ApiCore = /** @class */ (function () {
     function ApiCore(apiConfig) {
         this._apiConfig = apiConfig;
         this._AXIOS = this._generateAxiosInstance(this._apiConfig);
         this._AXIOS_FORM = this._generateFormDataAxiosInstance(this._apiConfig);
     }
-    ApiCore.prototype.delete = function (url) {
+    ApiCore.prototype["delete"] = function (url) {
         return __awaiter(this, void 0, void 0, function () {
             var res, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this._AXIOS.delete(url)];
+                        return [4 /*yield*/, this._AXIOS["delete"](url)];
                     case 1:
                         res = _a.sent();
                         return [2 /*return*/, res.data];
@@ -166,7 +163,7 @@ var ApiCore = /** @class */ (function () {
         this._AXIOS_FORM = this._generateFormDataAxiosInstance(this._apiConfig);
     };
     ApiCore.prototype._generateAxiosInstance = function (apiConfig) {
-        return axios_1.default.create(apiConfig);
+        return axios_1["default"].create(apiConfig);
     };
     ApiCore.prototype._generateFormDataAxiosInstance = function (apiConfig) {
         var formDataConfig = apiConfig;
@@ -175,7 +172,7 @@ var ApiCore = /** @class */ (function () {
         return this._generateAxiosInstance(formDataConfig);
     };
     ApiCore.prototype._getFormData = function (object) {
-        var formData = new form_data_1.default();
+        var formData = new form_data_1["default"]();
         Object.keys(object).forEach(function (key) { return formData.append(key, object[key]); });
         return formData;
     };
@@ -195,7 +192,6 @@ var ApiCore = /** @class */ (function () {
     };
     return ApiCore;
 }());
-exports.default = ApiCore;
+exports["default"] = ApiCore;
 // for tests
-exports.axiosInstance = axios_1.default;
-//# sourceMappingURL=index.js.map
+exports.axiosInstance = axios_1["default"];
