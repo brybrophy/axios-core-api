@@ -1,5 +1,8 @@
 node_modules/
-/dist
 .env
 .DS_Store
 npm-debug.log
+*.d.ts
+index.js
+*.js
+*.js.map

@@ -1,6 +1,6 @@
 {
   "name": "axios-core-api",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A core api instance with business logic for all CRUD methods.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "ts-mocha -p tsconfig.json test/**/*.spec.ts",
+    "test": "ts-mocha -p tsconfig.test.json test/**/*.spec.ts",
     "prepublishOnly": "tsc"
   },
   "author": "Bryan Brophy brybrophy@gmail.com",
@@ -41,8 +41,8 @@
     "url": "https://github.com/brybrophy/axios-core-api"
   },
   "files": [
-    "dist/src/index.d.ts",
-    "dist/src/index.js",
-    "dist/src/index.js.map"
+    "index.d.ts",
+    "index.js",
+    "index.js.map"
   ]
 }

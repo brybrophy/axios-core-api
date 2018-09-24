@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { AxiosResponse } from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import ApiCore, { axiosInstance } from '../src/index';
+import ApiCore, { axiosInstance } from '../src/AxiosCoreApi';
 
 const apiConfig = {
   headers: {
