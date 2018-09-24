@@ -10,7 +10,7 @@ interface IObject {
   [key: string]: string | number;
 }
 
-export default class ApiCore {
+export default class AxiosCoreApi {
   private _apiConfig: AxiosRequestConfig;
   private _AXIOS: AxiosInstance;
   private _AXIOS_FORM: AxiosInstance;

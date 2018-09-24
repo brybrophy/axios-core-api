@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { AxiosResponse } from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import ApiCore, { axiosInstance } from '../src/AxiosCoreApi';
+import AxiosCoreApi, { axiosInstance } from '../index';
 
 const apiConfig = {
   headers: {
@@ -13,11 +13,11 @@ const apiConfig = {
 
 describe('Axios Core Api', () => {
   let mock = new MockAdapter(axiosInstance);
-  let apiCore: ApiCore;
+  let apiCore: AxiosCoreApi;
 
   beforeEach(() => {
     mock = new MockAdapter(axiosInstance);
-    apiCore = new ApiCore(apiConfig);
+    apiCore = new AxiosCoreApi(apiConfig);
   });
 
   describe('CRUD Methods', () => {

@@ -5,13 +5,12 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
-    "module": "amd",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "strict": true,
     "target": "es5",
-    "lib": ["esnext", "dom"],
-    "outFile": "index.js"
+    "lib": ["esnext", "dom"]
   },
   "exclude": [
     "node_modules",
