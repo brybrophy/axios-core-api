@@ -1,6 +1,6 @@
 {
   "name": "axios-core-api",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A core api instance with business logic for all CRUD methods.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -27,6 +27,7 @@
     "axios": "^0.18.0",
     "axios-mock-adapter": "^1.15.0",
     "chai": "^4.1.2",
+    "form-data": "^2.3.2",
     "mocha": "^5.2.0",
     "ts-mocha": "^2.0.0",
     "typescript": "^3.0.3"
@@ -37,8 +38,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/brybrophy/axios-core-api"
-  },
-  "dependencies": {
-    "form-data": "^2.3.2"
   }
 }
