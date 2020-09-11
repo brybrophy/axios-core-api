@@ -1,9 +1,6 @@
 # Axios Core Api
 
-[![npm version](https://badge.fury.io/js/axios-core-api.svg)](https://badge.fury.io/js/axios-core-api)
-![https://img.shields.io/badge/dependencies-none-lightgrey.svg](https://img.shields.io/badge/dependencies-none-lightgrey.svg)
-![https://img.shields.io/badge/build-passing-brightgreen.svg](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![https://img.shields.io/badge/tests-passing-brightgreen.svg](https://img.shields.io/badge/tests-passing-brightgreen.svg)
+![https://img.shields.io/github/license/brybrophy/axios-core-api?color=blue](https://img.shields.io/github/license/brybrophy/axios-core-api?color=blue) ![https://img.shields.io/npm/v/axios-core-api](https://img.shields.io/npm/v/axios-core-api) ![https://img.shields.io/bundlephobia/minzip/axios-core-api](https://img.shields.io/bundlephobia/minzip/axios-core-api) ![https://img.shields.io/librariesio/release/npm/axios-core-api](https://img.shields.io/librariesio/release/npm/axios-core-api) ![https://img.shields.io/badge/tests-passing-brightgreen.svg](https://img.shields.io/badge/tests-passing-brightgreen.svg)
 
 ### Generate an Axios instance with business logic for all HTTP request methods.
 
@@ -17,24 +14,24 @@ It is written in TypeScript, and typings are included directly in the package.
 
 ## Usage
 
-You can read an in depth article on why and how to uses this package on [here on medium](https://medium.com/hello-high-seas/axios-core-api-object-oriented-javascript-love-effb37f14cd0).
+You can read an in depth article on why and how to uses this package [on medium](https://medium.com/hello-high-seas/axios-core-api-object-oriented-javascript-love-effb37f14cd0).
 
 ```javascript
-import ApiCore from 'axios-core-api';
+import ApiCore from "axios-core-api";
 
 const apiConfig = {
   headers: {
-    Accept: 'application/json',
+    Accept: "application/json",
     Authorization: `Bearer 123abc`,
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json",
   },
-  timeout: 15000
+  timeout: 15000,
 };
 
 export default class CrudApi {
   constructor() {
     this._apiCore = new ApiCore(apiConfig);
-    this._basePath = 'https://www.crud.org/api';
+    this._basePath = "https://www.crud.org/api";
   }
 }
 ```
@@ -42,16 +39,16 @@ export default class CrudApi {
 ## Usage With TypeScript
 
 ```javascript
-import { AxiosRequestConfig } from 'axios';
-import ApiCore from 'axios-core-api';
+import { AxiosRequestConfig } from "axios";
+import ApiCore from "axios-core-api";
 
 const apiConfig: AxiosRequestConfig = {
   headers: {
-    Accept: 'application/json',
+    Accept: "application/json",
     Authorization: `Bearer 123abc`,
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json",
   },
-  timeout: 15000
+  timeout: 15000,
 };
 
 export default class CrudApi {
@@ -60,7 +57,7 @@ export default class CrudApi {
 
   constructor() {
     this._apiCore = new ApiCore(apiConfig);
-    this._basePath = 'https://www.crud.org/api';
+    this._basePath = "https://www.crud.org/api";
   }
 }
 ```
