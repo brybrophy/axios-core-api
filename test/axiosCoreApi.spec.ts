@@ -125,7 +125,7 @@ describe('Axios Core Api', () => {
       apiCore
         .postFormData('/users', { id: 3, name: 'bill' })
         .then((res: AxiosResponse) => {
-          // assert.deepEqual(res.data, expected);
+          assert.deepEqual(res.data, expected);
         })
         .then(() => {
           done();
